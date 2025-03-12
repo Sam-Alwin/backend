@@ -13,7 +13,7 @@ app.use(cors({
   credentials: true,
 }));
 
-app.listen( "0.0.0.0", () => {
-  console.log("Server running");
+app.listen( 5000,"0.0.0.0", () => {
+  console.log("Server running on port 5000");
 });
 
