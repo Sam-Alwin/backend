@@ -4,12 +4,16 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const sequelize = new Sequelize({
-  dialect: 'mysql',
-  host: process.env.HOST,
-  username: process.env.USER,
-  password: process.env.PASSWORD,
-  database: process.env.DB,
-  logging: false, 
+  dialect: "mysql",
+  host: process.env.DB_HOST, 
+  username: process.env.DB_USER, 
+  password: process.env.DB_PASSWORD, 
+  database: process.env.DB_NAME, 
+  port: Number(process.env.DB_PORT) || 3306, 
+  logging: false,
+  dialectOptions: {
+    ssl: process.env.DB_SSL === "true" ? { rejectUnauthorized: false } : undefined, 
+  },
 });
 
 sequelize.sync({ alter: true }) 
