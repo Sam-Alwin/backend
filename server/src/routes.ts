@@ -125,7 +125,7 @@ router.post("/forgot-password", async (req, res): Promise<void> => {
     }
 
     const token = jwt.sign({ userId: user.id }, SECRET_KEY, { expiresIn: "15m" });
-    const resetLink = `http://localhost:5173/reset-password?token=${token}`;
+    const resetLink = `http://coursetrackerv7.s3-website.eu-north-1.amazonaws.com/reset-password?token=${token}`;
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
