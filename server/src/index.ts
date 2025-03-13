@@ -9,7 +9,9 @@ app.use(cors());
 app.use(cookieParser());
 app.use(router);
 app.use(cors({
-  origin: "http://coursetrackerv7.s3-website.eu-north-1.amazonaws.com:5173", // Allow frontend requests
+  origin: "http://coursetrackerv7.s3-website.eu-north-1.amazonaws.com:5173",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 }));
 
